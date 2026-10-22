@@ -42,7 +42,7 @@ JOBS = [
     },
     {
         "title": "Product Software Developer",
-        "period": "11/2022",
+        "period": "11/2022 - 05/2026",
         "company": "Công ty Cổ phần Công nghệ Viindoo",
         "bullets": [
             "Phát triển và cải tiến hệ thống Viindoo ERP trên nền tảng Odoo, bao gồm ứng dụng di động và Progressive Web Apps (PWA).",
