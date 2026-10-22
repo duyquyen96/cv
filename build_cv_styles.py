@@ -1,129 +1,95 @@
 #!/usr/bin/env python3
-"""Regenerate alternate CV styles with identical content to dinh-van-khoa-cv.html."""
+"""Regenerate alternate CV styles with identical content to nguyen-duy-quyen-cv.html."""
 
 from pathlib import Path
 
 DIR = Path(__file__).parent
 
-# ── Shared content (must match dinh-van-khoa-cv.html) ──────────────────────
+# ── Shared content (must match nguyen-duy-quyen-cv.html) ──────────────────────
 
-NAME = "Đinh Văn Khoa"
-ROLE = "Odoo Developer &amp; AI-Augmented Consultant"
-ROLE_BR = "Odoo Developer &amp;<br>AI-Augmented Consultant"
-
+NAME = "Nguyễn Duy Quyền"
+ROLE = "Python Fullstack Developer"
+ROLE_BR = "Python Fullstack<br>Developer"
 CONTACT = [
-    ("Email", "dinhvankhoa14091999@gmail.com", "mailto:dinhvankhoa14091999@gmail.com", "email"),
-    ("Điện thoại", "0982 594 840", None, "phone"),
-    ("Địa chỉ", "Tiên Minh, Hải Phòng", None, "location"),
-    ("GitHub", "github.com/JocelynVN", "https://github.com/JocelynVN", "github"),
+    ("Email", "duyquyencnt55@gmail.com", "mailto:duyquyencnt55@gmail.com", "email"),
+    ("Điện thoại", "0963 108 848", "tel:0963108848", "phone"),
+    ("Địa chỉ", "An Biên, Hải Phòng, Việt Nam", None, "location"),
+    ("GitHub", "github.com/duyquyen96", "https://github.com/duyquyen96", "github"),
 ]
-
-SKILLS_ODOO = [
-    "Odoo 11–19", "Python", "PostgreSQL", "XML / QWeb", "OWL / JavaScript",
-    "HTML / CSS", "Git / GitHub", "Bootstrap", "BigQuery", "Looker Studio", "Data Pipeline",
-]
-SKILLS_AI = [
-    "MCP Server", "AI Skills", "AI Agent", "Knowledge Base",
-    "Prompt Engineering", "Cursor / Codex",
-]
-SKILLS_SOFT = [
-    "Đào tạo người dùng", "Phân tích nghiệp vụ", "Làm việc nhóm", "Tự học", "Hỗ trợ kỹ thuật",
-]
-
+SKILLS_ODOO = ["Python", "JavaScript (ES6+)", "Odoo", "OWL", "React", "React Native", "Flutter", "PostgreSQL", "MySQL", "RESTful API", "XML-RPC", "JSON-RPC"]
+SKILLS_AI = ["Git", "Docker", "Linux (Ubuntu)", "Claude AI", "Cursor", "VS Code"]
+SKILLS_SOFT = ["Agile", "Scrum", "Phân tích nghiệp vụ", "BRD / SRS", "Functional Specification", "GAP Analysis", "Automation Testing"]
 EDU = {
-    "degree": "Cử nhân Công nghệ Thông tin",
+    "degree": "Kỹ sư Công nghệ Thông tin",
     "school": "Trường Đại học Hàng hải Việt Nam",
-    "meta": "09/2018 – 06/2022 · GPA 3.2",
+    "meta": "2014 - 2019",
 }
-
 SUMMARY = (
-    'Odoo Developer full-stack, <strong>4+ năm · Odoo 11–19</strong> — làm được cả hai: code sâu và đứng sát người dùng cuối. '
-    'Tại Viindoo đã đi trọn vòng đời: triển khai ERP đa ngành, phát triển sản phẩm, vận hành SaaS nội bộ; '
-    'hiện là Engineer chính tại Elasten VN — phát triển module, nâng cấp hệ thống và <strong>đào tạo trực tiếp nhân viên</strong>, '
-    'nên hiểu nghiệp vụ từ pain point thực tế, không chỉ từ tài liệu yêu cầu. '
-    'Điểm khác biệt: <strong>AI-augmented developer</strong> — xây dựng MCP Server, Skills và knowledge base Odoo cho agent, '
-    'rút ngắn vòng lặp dev → review → triển khai mà vẫn giữ chất lượng đầu ra.'
+    'Lập trình viên Python Fullstack với <strong>hơn 7 năm kinh nghiệm phát triển phần mềm</strong> '
+    'và <strong>hơn 3 năm chuyên sâu về hệ thống ERP</strong>. Có kinh nghiệm phát triển, tùy chỉnh module, '
+    'nâng cấp hệ thống, tối ưu hiệu năng và tích hợp các nền tảng bên ngoài. '
+    'Đã tham gia nhiều dự án chuyển đổi số quy mô lớn cho doanh nghiệp.'
 )
-
 JOBS = [
     {
-        "title": "Odoo Software Engineer",
-        "period": "03/2025 – Hiện tại · Toàn thời gian",
-        "company": "Công ty TNHH Elasten Việt Nam",
-        "bullets": [
-            "Đào tạo và hỗ trợ nhân viên, người dùng nội bộ khai thác Odoo — xây dựng tài liệu hướng dẫn, FAQ nghiệp vụ, giảm ticket lặp lại.",
-            "Phát triển và tùy chỉnh module theo quy trình bán hàng đa kênh; đảm bảo hệ thống đáp ứng nhu cầu vận hành thực tế.",
-            "Bảo trì, nâng cấp và tối ưu hệ thống Odoo nội bộ; xử lý sự cố production, đảm bảo vận hành ổn định.",
-            "Xây dựng CDP, Customer Engagement và Data Warehouse phục vụ phân tích dữ liệu chiến lược.",
-        ],
-    },
-    {
-        "title": "Internal System Developer (Part-time)",
-        "period": "06/2025 – Hiện tại",
+        "title": "Product Software Developer",
+        "period": "11/2022 - Hiện tại",
         "company": "Công ty Cổ phần Công nghệ Viindoo",
         "bullets": [
-            "Quay lại làm part-time sau giai đoạn chuyển sang Elasten VN; hỗ trợ hệ thống nội bộ theo nhu cầu dự án.",
-            "Cải tiến và tối ưu hệ thống nội bộ, nền tảng SaaS — đảm bảo ổn định, bảo mật và khả năng mở rộng.",
-            "Nâng cấp và triển khai dự án khách hàng; thử nghiệm AI tooling nội bộ phục vụ dev và vận hành.",
+            "Phát triển và cải tiến hệ thống Viindoo ERP trên nền tảng Odoo, bao gồm ứng dụng di động và Progressive Web Apps (PWA).",
+            "Tham gia Sprint Planning, Daily Scrum, Sprint Review và Retrospective trong môi trường Agile/Scrum.",
+            "Phân tích yêu cầu nghiệp vụ, thiết kế giải pháp và triển khai tính năng mới; phối hợp với BA, Tester và các bên liên quan để đảm bảo chất lượng sản phẩm.",
+            "Tối ưu hiệu năng, xử lý sự cố, nâng cấp Odoo từ phiên bản 13 trở lên và chuyển đổi dữ liệu.",
+            "Đóng góp cho các dự án mã nguồn mở OCA và Odoo.",
         ],
     },
     {
-        "title": "Product Developer → Project Developer",
-        "period": "02/2022 – 01/2025",
-        "company": "Công ty Cổ phần Công nghệ Viindoo",
+        "title": "Mobile Developer",
+        "period": "07/2020 - 11/2022",
+        "company": "365 Technology Applications Limited Company",
         "bullets": [
-            "Tham gia xuyên suốt triển khai và nâng cấp hệ thống cho khách hàng đa ngành — từ sản xuất, bán lẻ đến tư vấn xây dựng.",
-            "Phân tích nhu cầu, đề xuất và thực hiện giải pháp phù hợp; đóng vai trò key member, giải quyết triệt để vấn đề khách hàng.",
-            "Nghiên cứu, phát triển và tối ưu sản phẩm Odoo; tiếp xúc hầu hết nghiệp vụ trên nhiều phiên bản (11–19).",
-            "Phối hợp team dự án cải tiến sản phẩm dựa trên phản hồi thực tế từ triển khai.",
+            "Thiết kế và phát triển ứng dụng di động bằng React Native và Flutter.",
+            "Phát hành ứng dụng lên Apple App Store và Google Play; xử lý các vấn đề bị từ chối khi xét duyệt.",
+            "Tham gia các ứng dụng Landchat, Seaman Shop Vietnam, Thiền Hiện Đại Me-medi, Hải Sản Biển Đông, Minato và CTV Shop PT.",
         ],
     },
     {
-        "title": "Odoo Developer (Freelance)",
-        "period": "05/2024 – 02/2025",
-        "company": "Dự án độc lập",
+        "title": "Backend Developer",
+        "period": "06/2018 - 07/2020",
+        "company": "PE Technology Solution Joint Stock Company",
         "bullets": [
-            "Xây dựng hệ thống HIS (Hospital Information System) và HMS (Hospital Management System) trên Odoo.",
-            "Tham gia đội nghiên cứu Robot Y tế tích hợp với hệ thống Odoo.",
+            "Phân tích yêu cầu nghiệp vụ cho quy trình khai thác hàng hóa và thông quan.",
+            "Phân tích, thiết kế hệ thống quản lý giao nhận vận tải (Freight Forwarding Management System) bằng PHP, HTML, CSS, jQuery và MySQL.",
         ],
     },
 ]
-
 AI_BULLETS = [
-    'Thiết kế và vận hành <strong>MCP Server</strong> kết nối AI với codebase và tri thức Odoo.',
-    'Xây dựng <strong>AI Skills &amp; Agent workflows</strong> (intake, code review, gap analysis, triển khai) — chuẩn hóa quy trình dev/consulting.',
-    'Xây dựng <strong>knowledge base cho AI</strong>: rules, patterns, domain context giúp agent trả lời đúng nghiệp vụ Odoo, giảm hallucination.',
-    'Áp dụng AI hỗ trợ <strong>đào tạo người dùng</strong> (FAQ, hướng dẫn nghiệp vụ) và tăng năng suất dev/review trong môi trường production.',
+    'Hiểu các lỗ hổng bảo mật phổ biến: RCE, SQL Injection, XSS và các nguyên tắc bảo mật ứng dụng web.',
+    'Công cụ &amp; AI để giải quyết các tác vụ trong công việc.',
+    'Soạn tài liệu BRD, SRS, Functional Specification và GAP Analysis.',
+    'Thiết kế test case và thực hiện kiểm thử tự động.',
 ]
-
-PROJECT_NOTE = "Một số dự án nổi bật — còn nhiều triển khai &amp; nâng cấp khác trong 4+ năm tại Viindoo chưa liệt kê hết tại đây."
-
+PROJECT_NOTE = "Các dự án và đóng góp tiêu biểu trong quá trình phát triển ERP và ứng dụng di động."
 PROJECTS = [
-    ("Nâng cấp Viindoo 16.0 → 17.0", " · Viindoo · Developer · Odoo 17", [
-        "Nâng cấp cụm module: Sản xuất, Kho vận, Ví điện tử, Affiliate, HRM và Kế toán — team 8 Developers, 4 Testers.",
-        "Phân tích, cải tiến và migrate code đảm bảo tương thích phiên bản mới, ổn định sau nâng cấp.",
+    ("Nâng cấp và tích hợp Viindoo ERP", " · Viindoo · Odoo 13+", [
+        "Nâng cấp hệ thống qua nhiều phiên bản Odoo; phát triển thương mại điện tử, tích hợp chấm công, báo cáo hợp nhất và báo cáo kho.",
+        "Tích hợp Facebook, LinkedIn và tỷ giá ngân hàng ACB; chuyển đổi dữ liệu hành chính sau sắp xếp đơn vị hành chính.",
     ]),
-    ("Triển khai ERP — Tư vấn Xây dựng Điện 3", " · TVXĐ3 · Developer · Odoo 17", [
-        "Phát triển tính năng đặc thù ngành: kiểm soát chất lượng dự án, tạm hoãn HĐ nhân sự, khen thưởng/kỷ luật, hậu kiểm dự án.",
-        "Phân tích yêu cầu từ dự án xây dựng điện, đề xuất và triển khai giải pháp ERP toàn diện (dự án, tài chính, nhân sự).",
+    ("Chuyển đổi số doanh nghiệp", " · Weldcom / Thủy điện Hòa Bình / Xuất nhập khẩu Cao Bằng", [
+        "Tham gia các dự án chuyển đổi số; tối ưu hệ thống báo cáo cho chuỗi bán lẻ tại Xuất nhập khẩu Cao Bằng.",
     ]),
-    ("Triển khai ERP — Zulo Holdings", " · MLM &amp; E-commerce · Developer · Odoo 16", [
-        "Xây dựng sàn TMĐT, ví điện tử và hệ thống Affiliate — quản lý giao dịch, hoa hồng đa cấp, thanh toán trực tuyến.",
-        "Phân tích mô hình bán hàng đa cấp, tùy chỉnh module đáp ứng quy trình kinh doanh đặc thù.",
+    ("Ứng dụng di động tích hợp Odoo", " · Flutter / React Native / PWA", [
+        "Phát triển và bảo trì ứng dụng Thủy điện Hòa Bình, ứng dụng nội bộ Viindoo và ứng dụng mua sắm Zulo.",
     ]),
-    ("Triển khai ERP — Công ty Cổ phần X20", " · Dệt may · Developer · Odoo 15", [
-        "Custom manufacturing VN: kế toán sản xuất, tiêu hao định mức, thuê gia công, báo cáo giá thành, PLM/ECO.",
-        "Phân tích quy trình sản xuất dệt may, đề xuất giải pháp phù hợp đặc thù ngành.",
-    ]),
-    ("Nâng cấp ERP 13.0 → 15.0 — BDO Việt Nam", " · Kiểm toán · Team Leader · Odoo 13–15", [
-        "Lead team 2 Developers: phân tích hệ thống, migrate dữ liệu, nâng cấp module Kế toán, HRM, Quản lý dự án.",
-        "Kiểm tra và khắc phục lỗi sau nâng cấp, đảm bảo hệ thống vận hành ổn định theo đặc thù ngành kiểm toán.",
+    ("Ứng dụng di động tại 365 Technology", " · React Native / Flutter", [
+        "Landchat (bất động sản), Seaman Shop Vietnam (thương mại điện tử), Thiền Hiện Đại Me-medi (nhạc thiền).",
+        "Hải Sản Biển Đông (bán hàng), Minato (học tiếng Nhật trực tuyến), CTV Shop PT (bán hàng affiliate).",
     ]),
 ]
-
-MORE_TAGS = ["POS — F&amp;B", "Nâng cấp Odoo", "HIS / HMS", "SaaS nội bộ", "Robot y tế", "Subscription", "CDP / DWH", "Đa ngành"]
-MORE_TEXT = "Danh sách đầy đủ và mô tả chi tiết — sẵn sàng trình bày khi phỏng vấn hoặc theo yêu cầu."
-MORE_CTA = "→ Hỏi thêm về domain / module cụ thể bạn quan tâm."
+MORE_TAGS = ["ERP", "E-commerce", "Mobile / PWA", "Tích hợp hệ thống", "Chuyển đổi dữ liệu", "Mã nguồn mở"]
+MORE_TEXT = ""
+MORE_CTA = ""
+PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân &amp; Chứng chỉ</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam<br>MOS 2010 (2017) · TOEIC 495 (2019)</p></section>'
 
 ICONS = {
     "email": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>',
@@ -166,6 +132,7 @@ def main_content(indent=6):
     return f'''{" "*indent}<section class="main-section">
 {" "*indent}  <h2>Tóm tắt</h2>
 {" "*indent}  <p class="summary">{SUMMARY}</p>
+{PERSONAL}
 {" "*indent}</section>
 
 {" "*indent}<section class="main-section">
@@ -174,7 +141,7 @@ def main_content(indent=6):
 {" "*indent}</section>
 
 {" "*indent}<section class="main-section ai-section">
-{" "*indent}  <h2>Ứng dụng AI &amp; Tự động hóa quy trình</h2>
+{" "*indent}  <h2>Kỹ năng bổ sung</h2>
 {" "*indent}  <div class="job">
 {bullets_html(AI_BULLETS, indent + 4)}
 {" "*indent}  </div>
@@ -196,9 +163,9 @@ def main_content(indent=6):
 def sidebar_skills(indent=6):
     def tags(items):
         return "".join(f'<span class="skill-tag">{s}</span>' for s in items)
-    return f'''{" "*indent}<div class="sidebar-section"><h2>Kỹ năng Odoo / Dev</h2><div class="skill-tags">{tags(SKILLS_ODOO)}</div></div>
-{" "*indent}<div class="sidebar-section"><h2>Ứng dụng AI</h2><div class="skill-tags">{tags(SKILLS_AI)}</div></div>
-{" "*indent}<div class="sidebar-section"><h2>Kỹ năng mềm</h2><div class="skill-tags">{tags(SKILLS_SOFT)}</div></div>
+    return f'''{" "*indent}<div class="sidebar-section"><h2>Lập trình &amp; ERP</h2><div class="skill-tags">{tags(SKILLS_ODOO)}</div></div>
+{" "*indent}<div class="sidebar-section"><h2>Công cụ &amp; AI</h2><div class="skill-tags">{tags(SKILLS_AI)}</div></div>
+{" "*indent}<div class="sidebar-section"><h2>Quy trình &amp; Tài liệu</h2><div class="skill-tags">{tags(SKILLS_SOFT)}</div></div>
 {" "*indent}<div class="sidebar-section"><h2>Học vấn</h2>
 {" "*indent}  <div class="edu-degree">{EDU["degree"]}</div>
 {" "*indent}  <div class="edu-school">{EDU["school"]}</div>
@@ -527,8 +494,8 @@ def gen_minimal():
     </div>
   </header>
   <div class="skills-grid">
-    <div><h3>Kỹ năng Odoo / Dev</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
-    <div><h3>Ứng dụng AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
+    <div><h3>Lập trình &amp; ERP</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
+    <div><h3>Công cụ &amp; AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
     <div><h3>Học vấn</h3><p>{EDU["degree"]}<br>{EDU["school"]}<br>{EDU["meta"]}</p></div>
   </div>
   {main_content(2)}
@@ -572,8 +539,8 @@ def gen_elegant():
     <div class="contact">{contact}</div>
   </header>
   <div class="cols">
-    <div><h3>Kỹ năng Odoo / Dev</h3><div class="skill-line">{" · ".join(SKILLS_ODOO)}</div></div>
-    <div><h3>Ứng dụng AI &amp; Kỹ năng mềm</h3><div class="skill-line">{" · ".join(SKILLS_AI)}<br><br>{" · ".join(SKILLS_SOFT)}</div></div>
+    <div><h3>Lập trình &amp; ERP</h3><div class="skill-line">{" · ".join(SKILLS_ODOO)}</div></div>
+    <div><h3>Công cụ &amp; Quy trình</h3><div class="skill-line">{" · ".join(SKILLS_AI)}<br><br>{" · ".join(SKILLS_SOFT)}</div></div>
   </div>
   <div class="cols" style="margin-bottom:0"><div><h3>Học vấn</h3><div class="skill-line"><strong>{EDU["degree"]}</strong><br>{EDU["school"]}<br>{EDU["meta"]}</div></div></div>
   {main_content(2)}
@@ -612,14 +579,14 @@ def gen_corporate():
     <img class="avatar" src="avatar.png" alt="{NAME}">
     <div><h1>{NAME}</h1><div class="role">{ROLE}</div></div>
     <div class="banner-contact">
-      dinhvankhoa14091999@gmail.com<br>0982 594 840<br>Tiên Minh, Hải Phòng<br>
-      <a href="https://github.com/JocelynVN">github.com/JocelynVN</a>
+      duyquyencnt55@gmail.com<br>0963 108 848<br>An Biên, Hải Phòng, Việt Nam<br>
+      <a href="https://github.com/duyquyen96">github.com/duyquyen96</a>
     </div>
   </header>
   <div class="layout">
     <aside class="sidebar">
       <div class="sidebar-section"><h2>Liên hệ</h2>
-        <div class="edu-school">dinhvankhoa14091999@gmail.com<br>0982 594 840<br>Tiên Minh, Hải Phòng<br>github.com/JocelynVN</div>
+        <div class="edu-school">duyquyencnt55@gmail.com<br>0963 108 848<br>An Biên, Hải Phòng, Việt Nam<br>github.com/duyquyen96</div>
       </div>
       {sidebar_skills(6)}
     </aside>
@@ -707,11 +674,11 @@ def gen_tech():
     body = f'''<div class="cv">
   <header class="top">
     <img class="avatar" src="avatar.png" alt="{NAME}">
-    <div><h1>{NAME} <span>{{ odoo_dev }}</span></h1><div class="role">{ROLE}</div></div>
+    <div><h1>{NAME} <span>{{ python_dev }}</span></h1><div class="role">{ROLE}</div></div>
     <div class="contact">
-      <a href="mailto:dinhvankhoa14091999@gmail.com">dinhvankhoa14091999@gmail.com</a><br>
-      0982 594 840 · Hải Phòng<br>
-      <a href="https://github.com/JocelynVN">github.com/JocelynVN</a>
+      <a href="mailto:duyquyencnt55@gmail.com">duyquyencnt55@gmail.com</a><br>
+      0963 108 848 · Hải Phòng<br>
+      <a href="https://github.com/duyquyen96">github.com/duyquyen96</a>
     </div>
   </header>
   <div class="layout">
@@ -910,15 +877,16 @@ def gen_newspaper():
     <div class="contact">{contact}</div>
   </header>
   <div class="skills-row">
-    <div><h3>Odoo / Dev</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
-    <div><h3>Ứng dụng AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
+    <div><h3>Lập trình / ERP</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
+    <div><h3>Công cụ &amp; AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
     <div><h3>Học vấn</h3><p>{EDU["degree"]}<br>{EDU["school"]}<br>{EDU["meta"]}</p></div>
   </div>
   <h2>Tóm tắt</h2>
   <p class="summary">{SUMMARY}</p>
+{PERSONAL}
   <h2>Kinh nghiệm làm việc</h2>
   <div class="two-col">{jobs_html(2)}</div>
-  <h2>Ứng dụng AI &amp; Tự động hóa quy trình</h2>
+  <h2>Kỹ năng bổ sung</h2>
   <div class="job"><ul>{"".join(f"<li>{b}</li>" for b in AI_BULLETS)}</ul></div>
   <h2>Dự án tiêu biểu</h2>
   <p class="section-note">{PROJECT_NOTE}</p>
@@ -974,9 +942,9 @@ def gen_geometric():
       <div><h1>{NAME}</h1><div class="role">{ROLE}</div></div>
     </div>
     <div class="contact-block">
-      <a href="mailto:dinhvankhoa14091999@gmail.com">dinhvankhoa14091999@gmail.com</a><br>
-      0982 594 840<br>Tiên Minh, Hải Phòng<br>
-      <a href="https://github.com/JocelynVN">github.com/JocelynVN</a>
+      <a href="mailto:duyquyencnt55@gmail.com">duyquyencnt55@gmail.com</a><br>
+      0963 108 848<br>An Biên, Hải Phòng, Việt Nam<br>
+      <a href="https://github.com/duyquyen96">github.com/duyquyen96</a>
     </div>
   </header>
   <div class="body">
@@ -1035,9 +1003,9 @@ def gen_ocean():
       </div>
     </div>
     <div class="chips">
-      <div class="chip-group"><h3>Odoo / Dev</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
-      <div class="chip-group"><h3>Ứng dụng AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
-      <div class="chip-group"><h3>Kỹ năng mềm</h3><p>{" · ".join(SKILLS_SOFT)}</p></div>
+      <div class="chip-group"><h3>Lập trình / ERP</h3><p>{" · ".join(SKILLS_ODOO)}</p></div>
+      <div class="chip-group"><h3>Công cụ &amp; AI</h3><p>{" · ".join(SKILLS_AI)}</p></div>
+      <div class="chip-group"><h3>Quy trình &amp; Tài liệu</h3><p>{" · ".join(SKILLS_SOFT)}</p></div>
       <div class="chip-group"><h3>Học vấn</h3><p>{EDU["degree"]}<br>{EDU["school"]}<br>{EDU["meta"]}</p></div>
     </div>
     <main class="main">{main_content(4)}</main>
@@ -1046,28 +1014,41 @@ def gen_ocean():
     return wrap(f"CV Ocean — {NAME}", css, body)
 
 
+CLASSIC_CSS = "\n    :root {\n      --navy: #1e3a5f;\n      --navy-light: #2c5282;\n      --text: #2d3748;\n      --text-muted: #4a5568;\n      --sidebar-bg: #f8f9fa;\n      --border: #cbd5e0;\n      --accent: #1e3a5f;\n    }\n\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n\n    body {\n      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;\n      font-size: 10.5pt;\n      line-height: 1.45;\n      color: var(--text);\n      background: #e2e8f0;\n      -webkit-print-color-adjust: exact;\n      print-color-adjust: exact;\n    }\n\n    .cv-page {\n      max-width: 210mm;\n      min-height: 297mm;\n      margin: 16px auto;\n      background: #fff;\n      display: grid;\n      grid-template-columns: 32% 68%;\n      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);\n    }\n\n    /* ── Sidebar ── */\n    .sidebar {\n      background: var(--sidebar-bg);\n      border-right: 2px solid var(--navy);\n      padding: 28px 20px;\n    }\n\n    .sidebar-header {\n      margin-bottom: 24px;\n      padding-bottom: 16px;\n      border-bottom: 1px solid var(--border);\n      text-align: center;\n    }\n\n    .avatar {\n      width: 120px;\n      height: 120px;\n      border-radius: 50%;\n      object-fit: cover;\n      object-position: center 15%;\n      border: 3px solid var(--navy);\n      margin: 0 auto 14px;\n      display: block;\n      box-shadow: 0 2px 8px rgba(30, 58, 95, 0.15);\n    }\n\n    .sidebar-header h1 {\n      font-family: 'Merriweather', Georgia, serif;\n      font-size: 17pt;\n      font-weight: 700;\n      color: var(--navy);\n      line-height: 1.25;\n      margin-bottom: 6px;\n    }\n\n    .sidebar-header .title {\n      font-size: 9.5pt;\n      font-weight: 600;\n      color: var(--navy-light);\n      line-height: 1.35;\n    }\n\n    .sidebar-section {\n      margin-bottom: 20px;\n    }\n\n    .sidebar-section h2 {\n      font-family: 'Merriweather', Georgia, serif;\n      font-size: 8.5pt;\n      font-weight: 700;\n      text-transform: uppercase;\n      letter-spacing: 0.1em;\n      color: var(--navy);\n      border-bottom: 1px solid var(--border);\n      padding-bottom: 4px;\n      margin-bottom: 10px;\n    }\n\n    .contact-list {\n      list-style: none;\n    }\n\n    .contact-list li {\n      display: flex;\n      align-items: flex-start;\n      gap: 9px;\n      margin-bottom: 10px;\n      font-size: 9.5pt;\n      color: var(--text-muted);\n      word-break: break-word;\n    }\n\n    .contact-list li:last-child {\n      margin-bottom: 0;\n    }\n\n    .contact-icon {\n      flex-shrink: 0;\n      width: 15px;\n      height: 15px;\n      margin-top: 2px;\n      color: var(--navy);\n    }\n\n    .contact-icon svg {\n      display: block;\n      width: 100%;\n      height: 100%;\n    }\n\n    .contact-body {\n      flex: 1;\n      min-width: 0;\n    }\n\n    .contact-list a {\n      color: var(--navy-light);\n      text-decoration: none;\n    }\n\n    .contact-list a:hover {\n      text-decoration: underline;\n    }\n\n    .contact-label {\n      display: block;\n      font-size: 7pt;\n      text-transform: uppercase;\n      letter-spacing: 0.06em;\n      color: var(--navy);\n      font-weight: 600;\n      margin-bottom: 1px;\n    }\n\n    .skill-tags {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 5px;\n    }\n\n    .skill-tag {\n      font-size: 8.5pt;\n      background: #fff;\n      border: 1px solid var(--border);\n      border-radius: 3px;\n      padding: 3px 7px;\n      color: var(--text);\n      line-height: 1.3;\n    }\n\n    .edu-degree {\n      font-weight: 600;\n      font-size: 9.5pt;\n      color: var(--text);\n      margin-bottom: 2px;\n    }\n\n    .edu-school {\n      font-size: 9.5pt;\n      color: var(--text-muted);\n    }\n\n    .edu-meta {\n      font-size: 8.5pt;\n      color: var(--text-muted);\n      margin-top: 3px;\n    }\n\n    /* ── Main ── */\n    .main {\n      padding: 28px 28px 24px 24px;\n    }\n\n    .main-section {\n      margin-bottom: 18px;\n    }\n\n    .main-section:last-child {\n      margin-bottom: 0;\n    }\n\n    .main-section h2 {\n      font-family: 'Merriweather', Georgia, serif;\n      font-size: 10pt;\n      font-weight: 700;\n      text-transform: uppercase;\n      letter-spacing: 0.08em;\n      color: var(--navy);\n      border-bottom: 2px solid var(--navy);\n      padding-bottom: 4px;\n      margin-bottom: 6px;\n    }\n\n    .section-note {\n      font-size: 8.5pt;\n      color: var(--text-muted);\n      font-style: italic;\n      margin-bottom: 12px;\n      line-height: 1.4;\n    }\n\n    .summary {\n      font-size: 10pt;\n      color: var(--text);\n      text-align: justify;\n      line-height: 1.5;\n    }\n\n    .summary strong {\n      color: var(--navy);\n      font-weight: 700;\n    }\n\n    /* Experience */\n    .job {\n      margin-bottom: 14px;\n    }\n\n    .job:last-child {\n      margin-bottom: 0;\n    }\n\n    .job-header {\n      display: flex;\n      justify-content: space-between;\n      align-items: baseline;\n      flex-wrap: wrap;\n      gap: 4px 12px;\n      margin-bottom: 2px;\n    }\n\n    .job-title {\n      font-weight: 700;\n      font-size: 10.5pt;\n      color: var(--navy);\n    }\n\n    .job-period {\n      font-size: 9pt;\n      color: var(--text-muted);\n      white-space: nowrap;\n      font-weight: 600;\n    }\n\n    .job-company {\n      font-size: 9.5pt;\n      color: var(--text-muted);\n      font-style: italic;\n      margin-bottom: 6px;\n    }\n\n    .job ul {\n      padding-left: 16px;\n    }\n\n    .job li {\n      font-size: 9.5pt;\n      color: var(--text);\n      margin-bottom: 3px;\n      line-height: 1.4;\n    }\n\n    .job li::marker {\n      color: var(--navy-light);\n    }\n\n    /* Projects */\n    .project {\n      margin-bottom: 11px;\n      padding-left: 10px;\n      border-left: 3px solid var(--border);\n    }\n\n    .project:last-child {\n      margin-bottom: 0;\n    }\n\n    .project-header {\n      font-size: 9.5pt;\n      font-weight: 700;\n      color: var(--navy);\n      margin-bottom: 4px;\n      line-height: 1.35;\n    }\n\n    .project-meta {\n      font-weight: 400;\n      color: var(--text-muted);\n      font-size: 9pt;\n    }\n\n    .project ul {\n      padding-left: 14px;\n    }\n\n    .project li {\n      font-size: 9.5pt;\n      margin-bottom: 2px;\n      line-height: 1.4;\n    }\n\n    .projects-more {\n      margin-top: 12px;\n      padding: 0;\n      font-size: 9pt;\n      line-height: 1.45;\n      color: var(--text-muted);\n    }\n\n    .projects-more-label {\n      color: var(--text);\n      font-weight: 400;\n    }\n\n    .projects-tags {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 4px;\n      margin: 6px 0 8px;\n    }\n\n    .projects-tags span {\n      font-size: 8pt;\n      background: #fff;\n      border: 1px solid var(--border);\n      border-radius: 3px;\n      padding: 2px 6px;\n      color: var(--text);\n    }\n\n    .projects-cta {\n      display: block;\n      font-size: 8.5pt;\n      color: var(--text-muted);\n      font-weight: 400;\n      font-style: italic;\n    }\n\n    /* AI section highlight */\n    .ai-section .job li strong {\n      color: var(--navy);\n    }\n\n    /* Mobile + iframe embed (screen only — never affect PDF/print) */\n    html { -webkit-text-size-adjust: 100%; }\n\n    @media screen {\n      body {\n        container-type: inline-size;\n        container-name: cv-root;\n        min-width: 0;\n        overflow-x: hidden;\n      }\n      .cv-page { width: 100%; min-width: 0; }\n    }\n\n    @media screen {\n    @container cv-root (max-width: 600px) {\n      body { background: #fff; font-size: 10pt; overflow-x: hidden; }\n      .cv-page {\n        margin: 0;\n        width: 100%;\n        max-width: 100%;\n        min-width: 0;\n        min-height: auto;\n        box-shadow: none;\n        display: block !important;\n        grid-template-columns: none !important;\n      }\n      .sidebar {\n        width: 100%;\n        border-right: none;\n        border-bottom: 2px solid var(--navy);\n        padding: 20px 16px;\n      }\n      .main { padding: 20px 16px; width: 100%; }\n      .job-header { flex-direction: column; align-items: flex-start; gap: 2px; }\n      .job-period { white-space: normal; }\n      .contact-list a, .contact-body { overflow-wrap: anywhere; }\n    }\n    }\n\n    @media screen and (max-width: 600px) {\n      body { background: #fff; font-size: 10pt; overflow-x: hidden; }\n      .cv-page {\n        margin: 0;\n        width: 100%;\n        max-width: 100%;\n        min-width: 0;\n        min-height: auto;\n        box-shadow: none;\n        display: block !important;\n        grid-template-columns: none !important;\n      }\n      .sidebar {\n        width: 100%;\n        border-right: none;\n        border-bottom: 2px solid var(--navy);\n        padding: 20px 16px;\n      }\n      .main { padding: 20px 16px; width: 100%; }\n      .job-header { flex-direction: column; align-items: flex-start; gap: 2px; }\n      .job-period { white-space: normal; }\n      .contact-list a, .contact-body { overflow-wrap: anywhere; }\n    }\n\n    html.cv-embed body { background: #fff; font-size: 10pt; overflow-x: hidden; }\n    html.cv-embed .cv-page {\n      margin: 0;\n      width: 100%;\n      max-width: 100%;\n      min-width: 0;\n      min-height: auto;\n      box-shadow: none;\n      display: block !important;\n      grid-template-columns: none !important;\n    }\n    html.cv-embed .sidebar {\n      width: 100%;\n      border-right: none;\n      border-bottom: 2px solid var(--navy);\n      padding: 20px 16px;\n    }\n    html.cv-embed .main { padding: 20px 16px; width: 100%; }\n    html.cv-embed .job-header { flex-direction: column; align-items: flex-start; gap: 2px; }\n    html.cv-embed .job-period { white-space: normal; }\n    html.cv-embed .contact-list a, html.cv-embed .contact-body { overflow-wrap: anywhere; }\n\n    /* Print */\n    @media print {\n      body {\n        background: #fff;\n        font-size: 10pt;\n        -webkit-print-color-adjust: exact;\n        print-color-adjust: exact;\n      }\n\n      html, body {\n        margin: 0;\n        padding: 0;\n      }\n\n      body {\n        container-type: normal;\n      }\n\n      .cv-page {\n        margin: 0;\n        box-shadow: none;\n        max-width: none;\n        width: 100%;\n        min-height: auto;\n        overflow: visible;\n        display: grid;\n        grid-template-columns: 32% 68%;\n      }\n\n      .sidebar {\n        border-right: 2px solid var(--navy);\n        border-bottom: none;\n        width: auto;\n      }\n\n      .job-header {\n        flex-direction: row;\n        align-items: baseline;\n      }\n\n      .job-period {\n        white-space: nowrap;\n      }\n\n      @page {\n        size: A4;\n        margin: 0;\n      }\n\n      .summary,\n      .projects-more {\n        break-inside: avoid;\n        page-break-inside: avoid;\n      }\n\n      .main-section > h2 {\n        break-after: avoid;\n        page-break-after: avoid;\n      }\n\n      .job {\n        break-inside: avoid;\n        page-break-inside: avoid;\n      }\n\n      .project {\n        break-inside: avoid;\n        page-break-inside: avoid;\n      }\n    }\n  "
+
+def gen_classic():
+    css = CLASSIC_CSS
+    body = f'''<div class="cv-page"><aside class="sidebar">
+      <div class="sidebar-header"><img class="avatar" src="avatar.png" alt="{NAME}">
+      <h1>{NAME}</h1><div class="title">{ROLE_BR}</div></div>
+      <div class="sidebar-section"><h2>Liên hệ</h2><ul class="contact-list">{contact_sidebar()}</ul></div>
+      {sidebar_skills()}</aside><main class="main">{main_content()}</main></div>'''
+    return wrap(f"CV - {NAME}", css, body)
+
+
 STYLES = {
-    "dinh-van-khoa-cv-modern.html": gen_modern,
-    "dinh-van-khoa-cv-dark.html": gen_dark,
-    "dinh-van-khoa-cv-minimal.html": gen_minimal,
-    "dinh-van-khoa-cv-elegant.html": gen_elegant,
-    "dinh-van-khoa-cv-corporate.html": gen_corporate,
-    "dinh-van-khoa-cv-creative.html": gen_creative,
-    "dinh-van-khoa-cv-tech.html": gen_tech,
-    "dinh-van-khoa-cv-nordic.html": gen_nordic,
-    "dinh-van-khoa-cv-forest.html": gen_forest,
-    "dinh-van-khoa-cv-indigo.html": gen_indigo,
-    "dinh-van-khoa-cv-newspaper.html": gen_newspaper,
-    "dinh-van-khoa-cv-geometric.html": gen_geometric,
-    "dinh-van-khoa-cv-ocean.html": gen_ocean,
+    "nguyen-duy-quyen-cv.html": gen_classic,
+    "nguyen-duy-quyen-cv-modern.html": gen_modern,
+    "nguyen-duy-quyen-cv-dark.html": gen_dark,
+    "nguyen-duy-quyen-cv-minimal.html": gen_minimal,
+    "nguyen-duy-quyen-cv-elegant.html": gen_elegant,
+    "nguyen-duy-quyen-cv-corporate.html": gen_corporate,
+    "nguyen-duy-quyen-cv-creative.html": gen_creative,
+    "nguyen-duy-quyen-cv-tech.html": gen_tech,
+    "nguyen-duy-quyen-cv-nordic.html": gen_nordic,
+    "nguyen-duy-quyen-cv-forest.html": gen_forest,
+    "nguyen-duy-quyen-cv-indigo.html": gen_indigo,
+    "nguyen-duy-quyen-cv-newspaper.html": gen_newspaper,
+    "nguyen-duy-quyen-cv-geometric.html": gen_geometric,
+    "nguyen-duy-quyen-cv-ocean.html": gen_ocean,
 }
 
 
-ALL_CV_HTML = ["dinh-van-khoa-cv.html", *STYLES.keys()]
+ALL_CV_HTML = list(STYLES)
 
 PDF_EXPORT_CSS = """
     /* PDF export overrides */
-    @page { size: A4; margin: 0; }
+    @page { size: A4; margin: 8mm 0; }
     html, body {
       margin: 0 !important;
       padding: 0 !important;
@@ -1089,9 +1070,6 @@ PDF_EXPORT_CSS = """
       display: grid !important;
       grid-template-columns: 32% 68% !important;
     }
-    .cv {
-      display: grid !important;
-    }
     .sidebar, aside.sidebar {
       width: auto !important;
       border-bottom: none !important;
@@ -1110,7 +1088,7 @@ PDF_EXPORT_CSS = """
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
-    .main-section > h2, .main h2 {
+    .main-section > h2, .main h2, .cv > h2, .section-note {
       break-after: avoid !important;
       page-break-after: avoid !important;
     }
@@ -1148,8 +1126,8 @@ def _prepare_pdf_html(html_path):
             f'src="{avatar_src}"',
             content,
         )
-    tmp_dir = DIR / ".pdf-tmp"
-    tmp_dir.mkdir(exist_ok=True)
+    tmp_dir = DIR / "work" / "pdf-html"
+    tmp_dir.mkdir(parents=True, exist_ok=True)
     tmp_path = tmp_dir / html_path.name
     tmp_path.write_text(content, encoding="utf-8")
     return tmp_path
@@ -1192,6 +1170,7 @@ def export_pdfs():
             cmd = [
                 chrome,
                 "--headless=new",
+                f"--user-data-dir={DIR / 'work' / 'chrome-profile'}",
                 "--disable-gpu",
                 "--allow-file-access-from-files",
                 "--run-all-compositor-stages-before-draw",
