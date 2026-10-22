@@ -8,8 +8,8 @@ DIR = Path(__file__).parent
 # ── Shared content (must match nguyen-duy-quyen-cv.html) ──────────────────────
 
 NAME = "Nguyễn Duy Quyền"
-ROLE = "Python Fullstack Developer"
-ROLE_BR = "Python Fullstack<br>Developer"
+ROLE = "Python Fullstack Developer · Tech Lead RnD"
+ROLE_BR = "Python Fullstack Developer<br>Tech Lead RnD"
 CONTACT = [
     ("Email", "duyquyencnt55@gmail.com", "mailto:duyquyencnt55@gmail.com", "email"),
     ("Điện thoại", "0963 108 848", "tel:0963108848", "phone"),
@@ -28,9 +28,20 @@ SUMMARY = (
     'Lập trình viên Python Fullstack với <strong>hơn 7 năm kinh nghiệm phát triển phần mềm</strong> '
     'và <strong>hơn 3 năm chuyên sâu về hệ thống ERP</strong>. Có kinh nghiệm phát triển, tùy chỉnh module, '
     'nâng cấp hệ thống, tối ưu hiệu năng và tích hợp các nền tảng bên ngoài. '
-    'Đã tham gia nhiều dự án chuyển đổi số quy mô lớn cho doanh nghiệp.'
+    'Đã tham gia nhiều dự án chuyển đổi số quy mô lớn cho doanh nghiệp. '
+    'Từ 06/2026, đảm nhiệm vị trí kỹ sư lập trình, chức vụ <strong>Tech Lead bộ phận RnD tại VNPT</strong>; '
+    'tham gia phát triển nền tảng dịch vụ kinh tế tầm thấp ứng dụng UAV và AI.'
 )
 JOBS = [
+    {
+        "title": "Kỹ sư lập trình · Tech Lead RnD",
+        "period": "06/2026 - Hiện tại",
+        "company": '<a href="https://vnpt.com.vn/">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT)</a>',
+        "bullets": [
+            "Đảm nhiệm chức vụ Tech Lead tại bộ phận Nghiên cứu và Phát triển (RnD).",
+            "Tham gia phát triển VNPT LAEP Platform, website laegrid.vn và dự án Sàn việc làm của Bộ Nội vụ.",
+        ],
+    },
     {
         "title": "Product Software Developer",
         "period": "11/2022 - Hiện tại",
@@ -65,12 +76,21 @@ JOBS = [
 ]
 AI_BULLETS = [
     'Hiểu các lỗ hổng bảo mật phổ biến: RCE, SQL Injection, XSS và các nguyên tắc bảo mật ứng dụng web.',
-    'Công cụ &amp; AI để giải quyết các tác vụ trong công việc.',
+    'Ứng dụng AI để giải quyết các tác vụ trong công việc.',
     'Soạn tài liệu BRD, SRS, Functional Specification và GAP Analysis.',
     'Thiết kế test case và thực hiện kiểm thử tự động.',
 ]
-PROJECT_NOTE = "Các dự án và đóng góp tiêu biểu trong quá trình phát triển ERP và ứng dụng di động."
+PROJECT_NOTE = "Các nền tảng, dự án ứng dụng UAV / AI, chuyển đổi số, ERP và ứng dụng di động tiêu biểu."
 PROJECTS = [
+    ("VNPT LAEP Platform", " · VNPT · Nền tảng dịch vụ kinh tế tầm thấp", [
+        "Phát triển nền tảng dịch vụ kinh tế tầm thấp, ứng dụng UAV và AI để giải quyết các bài toán thực tiễn.",
+    ]),
+    ("Website dịch vụ kinh tế tầm thấp VNPT", " · VNPT", [
+        'Phát triển website <a href="https://laegrid.vn/">laegrid.vn</a> giới thiệu dịch vụ kinh tế tầm thấp của VNPT.',
+    ]),
+    ("Sàn việc làm của Bộ Nội vụ", " · Bộ Nội vụ", [
+        "Tham gia phát triển dự án Sàn việc làm của Bộ Nội vụ.",
+    ]),
     ("Nâng cấp và tích hợp Viindoo ERP", " · Viindoo · Odoo 13+", [
         "Nâng cấp hệ thống qua nhiều phiên bản Odoo; phát triển thương mại điện tử, tích hợp chấm công, báo cáo hợp nhất và báo cáo kho.",
         "Tích hợp Facebook, LinkedIn và tỷ giá ngân hàng ACB; chuyển đổi dữ liệu hành chính sau sắp xếp đơn vị hành chính.",
@@ -86,7 +106,7 @@ PROJECTS = [
         "Hải Sản Biển Đông (bán hàng), Minato (học tiếng Nhật trực tuyến), CTV Shop PT (bán hàng affiliate).",
     ]),
 ]
-MORE_TAGS = ["ERP", "E-commerce", "Mobile / PWA", "Tích hợp hệ thống", "Chuyển đổi dữ liệu", "Mã nguồn mở"]
+MORE_TAGS = ["UAV / AI", "Kinh tế tầm thấp", "Nền tảng số", "ERP", "E-commerce", "Mobile / PWA", "Tích hợp hệ thống", "Chuyển đổi dữ liệu", "Mã nguồn mở"]
 MORE_TEXT = ""
 MORE_CTA = ""
 PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân &amp; Chứng chỉ</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam<br>MOS 2010 (2017) · TOEIC 495 (2019)</p></section>'
@@ -349,6 +369,7 @@ def wrap(title, css, body):
   <title>{title}</title>
   <style>
 {css}{RESPONSIVE_CSS}
+    .job-company a, .project a {{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }}
   </style>
 </head>
 <body>
@@ -1011,6 +1032,21 @@ def gen_ocean():
     <main class="main">{main_content(4)}</main>
   </div>
 </div>'''
+    css += """
+    @media print {
+      .wrap { padding: 16px 28px 0; }
+      .job li, .project li { font-size: 9pt; line-height: 1.35; }
+      .projects-more { margin-top: 8px; }
+      .profile { margin-bottom: 14px; }
+      .chips { gap: 12px; margin-bottom: 12px; padding-bottom: 10px; }
+      .chip-group p { line-height: 1.4; }
+      .main-section { margin-bottom: 12px; }
+      .main h2 { margin-top: 8px; margin-bottom: 7px; }
+      .summary { padding: 8px 10px; }
+      .job { padding: 7px 10px; margin-bottom: 10px; }
+      .project { padding: 5px 8px; margin-bottom: 7px; }
+    }
+    """.rstrip()
     return wrap(f"CV Ocean — {NAME}", css, body)
 
 
