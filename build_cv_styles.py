@@ -42,7 +42,7 @@ JOBS = [
     },
     {
         "title": "Product Software Developer",
-        "period": "11/2022 - Hiện tại",
+        "period": "11/2022",
         "company": "Công ty Cổ phần Công nghệ Viindoo",
         "bullets": [
             "Phát triển và cải tiến hệ thống Viindoo ERP trên nền tảng Odoo, bao gồm ứng dụng di động và Progressive Web Apps (PWA).",
@@ -80,13 +80,13 @@ AI_BULLETS = [
 ]
 PROJECT_NOTE = "Các nền tảng, dự án ứng dụng UAV / AI, chuyển đổi số, ERP và ứng dụng di động tiêu biểu."
 PROJECTS = [
-    ("VNPT LAEP Platform", " · VNPT · Nền tảng dịch vụ kinh tế tầm thấp", [
+    ("VNPT LAEP Platform", " · VNPT · Vai trò: Tech Lead · Nền tảng dịch vụ kinh tế tầm thấp", [
         "Phát triển nền tảng dịch vụ kinh tế tầm thấp, ứng dụng UAV và AI để giải quyết các bài toán thực tiễn.",
     ]),
-    ("Website dịch vụ kinh tế tầm thấp VNPT", " · VNPT", [
+    ("Website dịch vụ kinh tế tầm thấp VNPT", " · VNPT · Vai trò: Tech Lead", [
         'Phát triển website <a href="https://laegrid.vn/">laegrid.vn</a> giới thiệu dịch vụ kinh tế tầm thấp của VNPT.',
     ]),
-    ("Sàn việc làm của Bộ Nội vụ", " · Bộ Nội vụ", [
+    ("Sàn việc làm của Bộ Nội vụ", " · Bộ Nội vụ · Vai trò: Tech Lead", [
         "Tham gia phát triển dự án Sàn việc làm của Bộ Nội vụ.",
     ]),
     ("Nâng cấp và tích hợp Viindoo ERP", " · Viindoo · Odoo 13+", [
@@ -1239,7 +1239,7 @@ def export_pdfs():
 def main(export_pdf=True):
     for filename, generator in STYLES.items():
         path = DIR / filename
-        path.write_text(generator(), encoding="utf-8")
+        path.write_text("\n".join(line.rstrip() for line in generator().splitlines()) + "\n", encoding="utf-8")
         print(f"✓ {filename}")
     if export_pdf:
         print("— Xuất PDF —")
