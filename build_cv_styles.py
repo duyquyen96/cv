@@ -28,15 +28,13 @@ SUMMARY = (
     'Lập trình viên Python Fullstack với <strong>hơn 7 năm kinh nghiệm phát triển phần mềm</strong> '
     'và <strong>hơn 3 năm chuyên sâu về hệ thống ERP</strong>. Có kinh nghiệm phát triển, tùy chỉnh module, '
     'nâng cấp hệ thống, tối ưu hiệu năng và tích hợp các nền tảng bên ngoài. '
-    'Đã tham gia nhiều dự án chuyển đổi số quy mô lớn cho doanh nghiệp. '
-    'Từ 06/2026, đảm nhiệm vị trí kỹ sư lập trình, chức vụ <strong>Tech Lead bộ phận RnD tại VNPT</strong>; '
-    'tham gia phát triển nền tảng dịch vụ kinh tế tầm thấp ứng dụng UAV và AI.'
+    'Đã tham gia nhiều dự án chuyển đổi số quy mô lớn cho doanh nghiệp.'
 )
 JOBS = [
     {
         "title": "Kỹ sư lập trình · Tech Lead RnD",
         "period": "06/2026 - Hiện tại",
-        "company": '<a href="https://vnpt.com.vn/">Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT)</a>',
+        "company": "Tập đoàn Bưu chính Viễn thông Việt Nam (VNPT)",
         "bullets": [
             "Đảm nhiệm chức vụ Tech Lead tại bộ phận Nghiên cứu và Phát triển (RnD).",
             "Tham gia phát triển VNPT LAEP Platform, website laegrid.vn và dự án Sàn việc làm của Bộ Nội vụ.",
@@ -368,7 +366,7 @@ def wrap(title, css, body):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <style>
-{css}{RESPONSIVE_CSS}
+{css.rstrip()}{RESPONSIVE_CSS}
     .job-company a, .project a {{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }}
   </style>
 </head>
