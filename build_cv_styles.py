@@ -107,7 +107,18 @@ PROJECTS = [
 MORE_TAGS = ["UAV / AI", "Kinh tế tầm thấp", "Nền tảng số", "ERP", "E-commerce", "Mobile / PWA", "Tích hợp hệ thống", "Chuyển đổi dữ liệu", "Mã nguồn mở"]
 MORE_TEXT = ""
 MORE_CTA = ""
-PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân &amp; Chứng chỉ</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam<br>MOS 2010 (2017) · TOEIC 500 (2019)</p></section>'
+PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam</p></section>'
+CERTIFICATES = [
+    "IBM Data Science Professional Certificate",
+    "TOEIC 500 (2019)",
+    "MOS 2010 (2017)",
+]
+
+
+def certificates_html():
+    items = "".join(f"<li>{certificate}</li>" for certificate in CERTIFICATES)
+    return f'<section class="main-section certificates-section"><h2>Chứng chỉ</h2><div class="job"><ul>{items}</ul></div></section>'
+
 
 ICONS = {
     "email": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>',
@@ -175,7 +186,8 @@ def main_content(indent=6):
 {" "*indent}    {MORE_TEXT}
 {" "*indent}    <span class="projects-cta">{MORE_CTA}</span>
 {" "*indent}  </div>
-{" "*indent}</section>'''
+{" "*indent}</section>
+{certificates_html()}'''
 
 
 def sidebar_skills(indent=6):
@@ -367,6 +379,7 @@ def wrap(title, css, body):
   <title>{title}</title>
   <style>
 {css.rstrip()}{RESPONSIVE_CSS}
+    .certificates-section {{ break-inside: avoid; page-break-inside: avoid; }}
     .job-company a, .project a {{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }}
   </style>
 </head>
@@ -916,6 +929,7 @@ def gen_newspaper():
     {MORE_TEXT}
     <span class="projects-cta">{MORE_CTA}</span>
   </div></div>
+  {certificates_html()}
 </div>'''
     return wrap(f"CV Newspaper — {NAME}", css, body)
 
