@@ -140,9 +140,16 @@
 
     const MOBILE_PREVIEW = () => window.innerWidth <= 900;
 
+    // Load fresh CV files when this page is opened after a deployment.
+    const ASSET_VERSION = Date.now().toString();
+    function assetUrl(path) {
+      const sep = path.includes('?') ? '&' : '?';
+      return `${path}${sep}v=${ASSET_VERSION}`;
+    }
+
     function previewUrl(html) {
-      const sep = html.includes('?') ? '&' : '?';
-      return MOBILE_PREVIEW() ? `${html}${sep}embed=1` : html;
+      const url = assetUrl(html);
+      return MOBILE_PREVIEW() ? `${url}&embed=1` : url;
     }
 
     function resizePreviewIframe() {
@@ -164,7 +171,7 @@
     function openPreview(style) {
       modalTitle.textContent = style.name;
       modalOpenTab.href = previewUrl(style.html);
-      modalDownload.href = style.pdf;
+      modalDownload.href = assetUrl(style.pdf);
       modalDownload.download = style.pdf.split('/').pop();
       loading.classList.remove('hidden');
       iframe.style.height = MOBILE_PREVIEW() ? 'auto' : '100%';
@@ -206,7 +213,7 @@
           <span class="tag">${s.tag}</span>
           <div class="actions">
             <button type="button" class="btn btn-view" data-preview>Xem</button>
-            <a class="btn btn-pdf" href="${s.pdf}" target="_blank" rel="noopener" download="${filename}">${PDF_ICON} Tải PDF</a>
+            <a class="btn btn-pdf" href="${assetUrl(s.pdf)}" target="_blank" rel="noopener" download="${filename}">${PDF_ICON} Tải PDF</a>
           </div>
         </div>`;
       card.querySelectorAll('[data-preview]').forEach(btn => {
@@ -219,7 +226,7 @@
       STYLES.forEach((s, i) => {
         setTimeout(() => {
           const a = document.createElement('a');
-          a.href = s.pdf;
+          a.href = assetUrl(s.pdf);
           a.download = s.pdf.split('/').pop();
           document.body.appendChild(a);
           a.click();

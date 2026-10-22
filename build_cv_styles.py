@@ -107,7 +107,7 @@ PROJECTS = [
 MORE_TAGS = ["UAV / AI", "Kinh tế tầm thấp", "Nền tảng số", "ERP", "E-commerce", "Mobile / PWA", "Tích hợp hệ thống", "Chuyển đổi dữ liệu", "Mã nguồn mở"]
 MORE_TEXT = ""
 MORE_CTA = ""
-PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân &amp; Chứng chỉ</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam<br>MOS 2010 (2017) · TOEIC 495 (2019)</p></section>'
+PERSONAL = '<section class="main-section"><h2>Thông tin cá nhân &amp; Chứng chỉ</h2><p class="summary">Ngày sinh: 07/10/1996 · Giới tính: Nam<br>MOS 2010 (2017) · TOEIC 500 (2019)</p></section>'
 
 ICONS = {
     "email": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>',
