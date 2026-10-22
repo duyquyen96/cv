@@ -370,6 +370,9 @@ EMBED_SCRIPT = '''
 '''
 
 
+TYPOGRAPHY_CSS = "\n    /* Shared CV typography: self-hosted Adobe Source Sans 3. */\n    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/SourceSans3-Regular.woff2') format('woff2'); }\n    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/SourceSans3-Semibold.woff2') format('woff2'); }\n    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/SourceSans3-Bold.woff2') format('woff2'); }\n    body { font-family: 'Source Sans 3', Arial, sans-serif !important; font-synthesis: none; }\n    body * { font-family: inherit !important; }\n    h1 { font-weight: 700 !important; letter-spacing: .01em !important; text-transform: none !important; }\n    h2, h3 { font-variant: normal !important; letter-spacing: .02em !important; font-weight: 700 !important; }\n    .main-section > h2, .main h2, .cv > h2 { font-size: 11pt; }\n    .job-company, .job-period, .role, .section-note, .projects-cta { font-style: normal !important; }\n    .summary { text-align: left !important; font-size: 10.5pt; line-height: 1.45; }\n    .job-title { font-weight: 700; }\n    .job li, .project li { font-size: 10pt; line-height: 1.4; }\n    .job-period { font-weight: 600; font-variant-numeric: tabular-nums; }\n    .project-header { font-weight: 700; }\n"
+
+
 def wrap(title, css, body):
     return f'''<!DOCTYPE html>
 <html lang="vi">
@@ -378,7 +381,7 @@ def wrap(title, css, body):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <style>
-{css.rstrip()}{RESPONSIVE_CSS}
+{css.rstrip()}{RESPONSIVE_CSS}{TYPOGRAPHY_CSS}
     .certificates-section {{ break-inside: avoid; page-break-inside: avoid; }}
     .job-company a, .project a {{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }}
   </style>
@@ -1164,6 +1167,11 @@ def _prepare_pdf_html(html_path):
     import re
 
     content = html_path.read_text(encoding="utf-8")
+    # Embed fonts so temporary HTML and exported PDFs need no external files.
+    import base64
+    for font_path in (DIR / "assets" / "fonts").glob("*.woff2"):
+        font_data = base64.b64encode(font_path.read_bytes()).decode("ascii")
+        content = content.replace(f"assets/fonts/{font_path.name}", f"data:font/woff2;base64,{font_data}")
     if "/* PDF export overrides */" not in content:
         content = content.replace("</style>", PDF_EXPORT_CSS + "\n  </style>", 1)
     avatar_src = _avatar_data_uri()

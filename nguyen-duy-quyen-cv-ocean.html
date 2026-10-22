@@ -256,6 +256,22 @@
       html.cv-embed .wave, html.cv-embed .accent-bar { display: block; }
 
 
+    /* Shared CV typography: self-hosted Adobe Source Sans 3. */
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/SourceSans3-Regular.woff2') format('woff2'); }
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/SourceSans3-Semibold.woff2') format('woff2'); }
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/SourceSans3-Bold.woff2') format('woff2'); }
+    body { font-family: 'Source Sans 3', Arial, sans-serif !important; font-synthesis: none; }
+    body * { font-family: inherit !important; }
+    h1 { font-weight: 700 !important; letter-spacing: .01em !important; text-transform: none !important; }
+    h2, h3 { font-variant: normal !important; letter-spacing: .02em !important; font-weight: 700 !important; }
+    .main-section > h2, .main h2, .cv > h2 { font-size: 11pt; }
+    .job-company, .job-period, .role, .section-note, .projects-cta { font-style: normal !important; }
+    .summary { text-align: left !important; font-size: 10.5pt; line-height: 1.45; }
+    .job-title { font-weight: 700; }
+    .job li, .project li { font-size: 10pt; line-height: 1.4; }
+    .job-period { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .project-header { font-weight: 700; }
+
     .certificates-section { break-inside: avoid; page-break-inside: avoid; }
     .job-company a, .project a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   </style>

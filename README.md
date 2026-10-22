@@ -28,3 +28,9 @@ Chỉ xuất lại PDF:
 ```bash
 python3 build_cv_styles.py --pdf-only
 ```
+
+## Font chữ
+
+Cả 14 mẫu dùng Source Sans 3 (Adobe), các độ đậm 400 / 600 / 700.
+Font và giấy phép SIL Open Font License được lưu tại `assets/fonts/`.
+Bản PDF nhúng font để hiển thị tiếng Việt nhất quán khi xem hoặc in.

@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Nguyễn Duy Quyền — Chọn mẫu</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
+
+    /* Shared CV typography: self-hosted Adobe Source Sans 3. */
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/SourceSans3-Regular.woff2') format('woff2'); }
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/SourceSans3-Semibold.woff2') format('woff2'); }
+    @font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/SourceSans3-Bold.woff2') format('woff2'); }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; padding: 40px 24px; }
+    body { font-family: 'Source Sans 3', Arial, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; padding: 40px 24px; }
     body.modal-open { overflow: hidden; }
     h1 { font-size: 1.5rem; margin-bottom: 6px; }
     p.sub { color: #64748b; margin-bottom: 28px; font-size: .95rem; }
@@ -27,7 +32,7 @@
     .preview.nordic { background: linear-gradient(135deg, #5e81ac, #eceff4); color: #2e3440; }
     .preview.forest { background: linear-gradient(135deg, #1b4332, #d8f3dc); }
     .preview.indigo { background: linear-gradient(135deg, #4338ca, #eef2ff); }
-    .preview.newspaper { background: linear-gradient(135deg, #1a1a1a, #f5f5f5); color: #1a1a1a; font-family: Georgia, serif; }
+    .preview.newspaper { background: linear-gradient(135deg, #1a1a1a, #f5f5f5); color: #1a1a1a; font-family: 'Source Sans 3', Arial, sans-serif; }
     .preview.geometric { background: linear-gradient(135deg, #ea580c, #1c1917); }
     .preview.ocean { background: linear-gradient(135deg, #0369a1, #0ea5e9); }
     .info { padding: 12px 14px 14px; }
@@ -113,7 +118,7 @@
 
   <script>
     const STYLES = [
-      { id: 'classic',    name: 'Classic Sidebar',  html: 'nguyen-duy-quyen-cv.html',          pdf: 'pdf/nguyen-duy-quyen-cv.pdf',          desc: 'Sidebar xám + navy, Merriweather.', tag: 'Mặc định' },
+      { id: 'classic',    name: 'Classic Sidebar',  html: 'nguyen-duy-quyen-cv.html',          pdf: 'pdf/nguyen-duy-quyen-cv.pdf',          desc: 'Sidebar xám + navy, Source Sans 3.', tag: 'Mặc định' },
       { id: 'modern',     name: 'Modern Teal',      html: 'nguyen-duy-quyen-cv-modern.html',   pdf: 'pdf/nguyen-duy-quyen-cv-modern.pdf',   desc: 'Header ngang, accent teal.', tag: 'Teal' },
       { id: 'dark',       name: 'Dark Executive',   html: 'nguyen-duy-quyen-cv-dark.html',     pdf: 'pdf/nguyen-duy-quyen-cv-dark.pdf',     desc: 'Sidebar tối + gold.', tag: 'Dark' },
       { id: 'minimal',    name: 'Minimal Swiss',    html: 'nguyen-duy-quyen-cv-minimal.html',  pdf: 'pdf/nguyen-duy-quyen-cv-minimal.pdf',  desc: 'Đen trắng, 1 cột.', tag: 'Minimal' },
@@ -124,7 +129,7 @@
       { id: 'nordic',     name: 'Nordic Clean',     html: 'nguyen-duy-quyen-cv-nordic.html',   pdf: 'pdf/nguyen-duy-quyen-cv-nordic.pdf',   desc: 'Scandinavian, nhẹ.', tag: 'Nordic' },
       { id: 'forest',     name: 'Forest Green',     html: 'nguyen-duy-quyen-cv-forest.html',   pdf: 'pdf/nguyen-duy-quyen-cv-forest.pdf',   desc: 'Xanh rừng, sidebar đậm.', tag: 'Green' },
       { id: 'indigo',     name: 'Indigo Right',     html: 'nguyen-duy-quyen-cv-indigo.html',   pdf: 'pdf/nguyen-duy-quyen-cv-indigo.pdf',   desc: 'Sidebar bên phải, indigo.', tag: 'Right bar' },
-      { id: 'newspaper',  name: 'Newspaper',        html: 'nguyen-duy-quyen-cv-newspaper.html',pdf: 'pdf/nguyen-duy-quyen-cv-newspaper.pdf',desc: 'Báo chí, 2 cột, serif.', tag: 'Editorial' },
+      { id: 'newspaper',  name: 'Newspaper',        html: 'nguyen-duy-quyen-cv-newspaper.html',pdf: 'pdf/nguyen-duy-quyen-cv-newspaper.pdf',desc: 'Hai cột, chữ sans-serif rõ ràng.', tag: 'Editorial' },
       { id: 'geometric',  name: 'Geometric Bold',   html: 'nguyen-duy-quyen-cv-geometric.html',pdf: 'pdf/nguyen-duy-quyen-cv-geometric.pdf',desc: 'Cam + đen, avatar lục giác.', tag: 'Bold' },
       { id: 'ocean',      name: 'Ocean Breeze',     html: 'nguyen-duy-quyen-cv-ocean.html',    pdf: 'pdf/nguyen-duy-quyen-cv-ocean.pdf',    desc: 'Xanh biển, card bo tròn.', tag: 'Ocean' },
     ];
